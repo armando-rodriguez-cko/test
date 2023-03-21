@@ -21,7 +21,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           branch: example-patches
-          branch-suffix: timestamps
+          branch-suffix: timestamp
           committer: 'Github Actions <github-action@users.noreply.github.com>'
           author: 'Github Actions <github-action@users.noreply.github.com>'
           title: '[Example] Update report'
