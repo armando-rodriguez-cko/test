@@ -16,23 +16,14 @@ jobs:
         run: |
           git config --global user.name "Github Actions"
           git config --global user.email "github-action@users.noreply.github.com"
-          git checkout -b feature/new-pr
-          git push -u origin feature/new-pr
           date +%s > report.txt
           git add .
           git commit -m "Modify tracked file during workflow"
           git push
           
-      - name: Checkout new PR
-        uses: actions/checkout@v3
-        with:
-          ref: feature/new-pr
-          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          base: main
-          branch: feature/new-pr
           title: '[Example] Update report'
           body: |
             Update report
