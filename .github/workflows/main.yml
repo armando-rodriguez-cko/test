@@ -18,10 +18,10 @@ jobs:
           git commit -am "Modify tracked file during workflow"
           
       - name: Create Pull Request
-        id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: example-patches-${{ steps.cpr.outputs.pull-request-number }}
+          branch: example-patches
+          branch-suffix: timestamps
           committer: 'Github Actions <github-action@users.noreply.github.com>'
           author: 'Github Actions <github-action@users.noreply.github.com>'
           title: '[Example] Update report'
@@ -36,8 +36,3 @@ jobs:
             automated pr
           assignees: armando-rodriguez-cko
           reviewers: armando-rodriguez-cko
-          team-reviewers: |
-            owners
-            maintainers
-          milestone: 1
-          draft: false
