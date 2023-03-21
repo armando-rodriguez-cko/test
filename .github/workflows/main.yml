@@ -7,10 +7,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v3
         with:
-          path: main
+          ref: main
           
       - name: Create commits
         run: |
@@ -23,10 +23,10 @@ jobs:
           git commit -m "Modify tracked file during workflow"
           git push
           
-      - name: Checkout
+      - name: Checkout new PR
         uses: actions/checkout@v3
         with:
-          path: feature/new-pr
+          ref: feature/new-pr
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
