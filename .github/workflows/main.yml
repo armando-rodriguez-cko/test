@@ -18,9 +18,12 @@ jobs:
           git commit -am "Modify tracked file during workflow"
           
       - name: Create Pull Request
+        id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: example-patches
+          branch: example-patches-${{ steps.cpr.outputs.pull-request-number }}
+          committer: 'Github Actions <github-action@users.noreply.github.com>'
+          author: github-action@users.noreply.github.com
           title: '[Example] Update report'
           body: |
             Update report
