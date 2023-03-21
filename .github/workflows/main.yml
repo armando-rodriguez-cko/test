@@ -12,10 +12,11 @@ jobs:
         run: |
           git config --global user.name "Github Actions"
           git config --global user.email "github-action@users.noreply.github.com"
+          git checkout -b feature/new-pr
+          git push -u origin feature/new-pr
           date +%s > report.txt
-          git commit -am "Modify tracked file during workflow"
-          date +%s > new-report.txt
-          git add -A
-          git commit -m "Add untracked file during workflow"
+          git add .
+          git commit -m "Modify tracked file during workflow"
+          git push
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
