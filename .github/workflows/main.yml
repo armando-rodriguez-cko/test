@@ -23,7 +23,7 @@ jobs:
         with:
           branch: example-patches-${{ steps.cpr.outputs.pull-request-number }}
           committer: 'Github Actions <github-action@users.noreply.github.com>'
-          author: github-action@users.noreply.github.com
+          author: 'Github Actions <github-action@users.noreply.github.com>'
           title: '[Example] Update report'
           body: |
             Update report
